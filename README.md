@@ -9,8 +9,11 @@ Next, do a typical CMake build (preferably in a subdirectory).</p>
 
 <blockquote>
   <p>mkdir build
+    <br>
 cd build
+    <br>
 cmake ..
+    <br>
 make</p>
 </blockquote>
 
