@@ -5,6 +5,7 @@
 <h2>Building</h2>
 
 <p>First, you will need <a href="https://www.pushbullet.com/">Pushbullet</a> on your phone. Register an account and obtain an API key on your settings.
+  <br>
 Next, do a typical CMake build (preferably in a subdirectory).</p>
 
 <blockquote>
@@ -25,6 +26,6 @@ make</p>
 
 <h2>Dependencies</h2>
 
-<p><a href="https://github.com/whoshuu/cpr">cpr</a>
-myhtml
+<p><a href="https://github.com/whoshuu/cpr">cpr</a><br>
+myhtml<br>
 pthread</p>
