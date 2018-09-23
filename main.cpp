@@ -101,7 +101,7 @@ int main(int argc, char* argv[])
                 cout << st.get_fund_from_avg_diff() << " left to spend today to maintain funds." << endl;
             old_t.date = "-";
         }
-        if (trans.size() > 0){
+        else if (trans.size() > 0){
             Transaction new_t = trans[0];
             if (!old_t.compare(new_t)) {
                 st.increase_current_spendings(new_t.charge);
@@ -113,7 +113,6 @@ int main(int argc, char* argv[])
         }
         std::this_thread::sleep_for(std::chrono::seconds(3));
     }
-    running.store(false);
     cin_td.join();
 
     return 0;
