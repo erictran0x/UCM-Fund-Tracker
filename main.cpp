@@ -91,17 +91,23 @@ int main(int argc, char* argv[])
         st.update_balance_page();
         vector<Transaction> trans = st.get_todays_transactions();
         if (old_t.date == "") {
-            for (Transaction t : trans) {
-                st.increase_current_spendings(t.charge);
+            if (trans.size() > 0) {
+                for (unsigned int i = 0; i < trans.size(); ++i) {
+                    if (i == 0)
+                        old_t.date = trans[i].date;
+                    st.increase_current_spendings(trans[i].charge);
+                }
+            }
+            else {
+                old_t.date = "-";
             }
             cout << trans.size() << " transactions were made today." << endl;
             if (st.is_over_avg())
                 cout << "More than the recommended daily amount was spent today." << endl;
             else
                 cout << st.get_fund_from_avg_diff() << " left to spend today to maintain funds." << endl;
-            old_t.date = "-";
         }
-        else if (trans.size() > 0){
+        else if (trans.size() > 0) {
             Transaction new_t = trans[0];
             if (!old_t.compare(new_t)) {
                 st.increase_current_spendings(new_t.charge);
